@@ -1,0 +1,5 @@
+# Copyright (c) 2018-2025 SuperACME Electronics Corporation Holding Limited
+# SPDX-License-Identifier: Apache-2.0
+
+config BOARD_SA6920
+	select SOC_SA6920_STAR

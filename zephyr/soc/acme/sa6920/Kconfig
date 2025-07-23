@@ -1,0 +1,11 @@
+# Copyright (c) 2018-2025 SuperACME Electronics Corporation Holding Limited
+# SPDX-License-Identifier: Apache-2.0
+
+config SOC_SERIES_SA6920
+	select ARM
+
+config SOC_SA6920_STAR
+	select CPU_CORTEX_M33
+	select CPU_HAS_ARM_MPU
+	select CPU_HAS_ARM_SAU
+

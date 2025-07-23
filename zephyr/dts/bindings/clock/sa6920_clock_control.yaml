@@ -1,0 +1,15 @@
+# Copyright (c) 2023 EPAM Systems
+# SPDX-License-Identifier: Apache-2.0
+
+description: SUPER ACME 6920 SoC Clock and Software Reset
+
+compatible: "sa6920,crg"
+
+include: [clock-controller.yaml, base.yaml]
+
+properties:
+  "#clock-cells":
+    const: 1
+
+clock-cells:
+  - id

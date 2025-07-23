@@ -1,0 +1,20 @@
+# Copyright (c) 2018-2025 SuperACME Electronics Corporation Holding Limited
+# SPDX-License-Identifier: Apache-2.0
+
+config SOC_SERIES_SA6920
+	bool
+	select SOC_FAMILY_ACME
+	help
+	  Enable support for ACME SA6920 Series
+
+config SOC_SA6920_STAR
+	bool
+	select SOC_SERIES_SA6920
+	help
+	  ARM Cortex-M33 (STAR)
+
+config SOC_SERIES
+	default "sa6920" if SOC_SERIES_SA6920
+
+config SOC
+	default "star" if SOC_SA6920_STAR

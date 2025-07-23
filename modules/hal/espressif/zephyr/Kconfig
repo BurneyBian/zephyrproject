@@ -1,0 +1,132 @@
+# Copyright (c) 2024-2025 Espressif Systems (Shanghai) Co., Ltd.
+# SPDX-License-Identifier: Apache-2.0
+
+if SOC_FAMILY_ESPRESSIF_ESP32
+
+if MCUBOOT
+
+config EFUSE_VIRTUAL_OFFSET
+	hex
+	default 0x250000 if SOC_SERIES_ESP32
+	default 0x250000 if SOC_SERIES_ESP32S2
+	default 0x250000 if SOC_SERIES_ESP32S3
+	default 0x250000 if SOC_SERIES_ESP32C3
+	default 0x250000 if SOC_SERIES_ESP32C6
+
+config EFUSE_VIRTUAL_SIZE
+	hex
+	default 0x2000 if SOC_SERIES_ESP32
+	default 0x2000 if SOC_SERIES_ESP32S2
+	default 0x2000 if SOC_SERIES_ESP32S3
+	default 0x2000 if SOC_SERIES_ESP32C3
+	default 0x2000 if SOC_SERIES_ESP32C6
+
+config EFUSE_MAX_BLK_LEN
+	int
+	default 192 if SOC_SERIES_ESP32
+	default 256 if SOC_SERIES_ESP32S2
+	default 256 if SOC_SERIES_ESP32S3
+	default 256 if SOC_SERIES_ESP32C3
+	default 256 if SOC_SERIES_ESP32C6
+
+endif # MCUBOOT
+
+config BOOTLOADER_LOG_LEVEL
+	int
+	default 3
+
+config LOG_TIMESTAMP_SOURCE_RTOS
+	bool
+	default y
+
+config ESP32_DPORT_DIS_INTERRUPT_LVL
+	int
+	default 5 if SOC_SERIES_ESP32 || SOC_SERIES_ESP32S3
+
+config FREERTOS_UNICORE
+	bool
+	default y if !SMP
+
+config ESP_SYSTEM_SINGLE_CORE_MODE
+	bool
+	default y if SOC_SERIES_ESP32
+
+config IDF_FIRMWARE_CHIP_ID
+	hex
+	default 0x0000 if SOC_SERIES_ESP32
+	default 0x0002 if SOC_SERIES_ESP32S2
+	default 0x0009 if SOC_SERIES_ESP32S3
+	default 0x000C if SOC_SERIES_ESP32C2
+	default 0x0005 if SOC_SERIES_ESP32C3
+	default 0x000D if SOC_SERIES_ESP32C6
+
+config SPIRAM_ALLOW_BSS_SEG_EXTERNAL_MEMORY
+	bool
+	default y if SOC_SERIES_ESP32
+	default y if SOC_SERIES_ESP32S2
+	default y if SOC_SERIES_ESP32S3
+
+config SPIRAM_ALLOW_NOINIT_SEG_EXTERNAL_MEMORY
+	bool
+	default y if SOC_SERIES_ESP32
+	default y if SOC_SERIES_ESP32S2
+	default y if SOC_SERIES_ESP32S3
+
+config IDF_TARGET_ESP32
+	bool
+	default y if SOC_SERIES_ESP32
+
+config IDF_TARGET_ESP32S2
+	bool
+	default y if SOC_SERIES_ESP32S2
+
+config IDF_TARGET_ESP32S3
+	bool
+	default y if SOC_SERIES_ESP32S3
+
+config IDF_TARGET_ESP32C2
+	bool
+	default y if SOC_SERIES_ESP32C2
+
+config IDF_TARGET_ESP32C3
+	bool
+	default y if SOC_SERIES_ESP32C3
+
+config IDF_TARGET_ESP32C6
+	bool
+	default y if SOC_SERIES_ESP32C6
+
+menu "Sleep config"
+
+config ESP_SLEEP_WAIT_FLASH_READY_EXTRA_DELAY
+	int "Extra delay (in us) after flash powerdown sleep wakeup to wait flash ready"
+	default 2000 if IDF_TARGET_ESP32 || IDF_TARGET_ESP32S3
+	default 0
+	range 0 5000
+	help
+	  When the chip exits sleep, the CPU and the flash chip are powered on at the same time.
+	  CPU will run rom code (deepsleep) or ram code (lightsleep) first, and then load or execute
+	  code from flash.
+
+	  Some flash chips need sufficient time to pass between power on and first read operation.
+	  By default, without any extra delay, this time is approximately 900us, although
+	  some flash chip types need more than that.
+
+	  (!!! Please adjust this value according to the Data Sheet of SPI Flash used in your project.)
+	  In Flash Data Sheet, the parameters that define the Flash ready timing after power-up (minimum
+	  time from Vcc(min) to CS active) usually named tVSL in ELECTRICAL CHARACTERISTICS chapter,
+	  and the configuration value here should be:
+	  ESP_SLEEP_WAIT_FLASH_READY_EXTRA_DELAY = tVSL - 900
+
+	  For esp32 and esp32s3, the default extra delay is set to 2000us. When optimizing startup time
+	  for applications which require it, this value may be reduced.
+
+	  If you are seeing "flash read err, 1000" message printed to the console after deep sleep reset
+	  on esp32, or triggered RTC_WDT/LP_WDT after lightsleep wakeup, try increasing this value.
+	  (For esp32, the delay will be executed in both deep sleep and light sleep wake up flow.
+	  For chips after esp32, the delay will be executed only in light sleep flow, the delay
+	  controlled by the EFUSE_FLASH_TPUW in ROM will be executed in deepsleep wake up flow.)
+
+endmenu # Sleep config
+
+endif # SOC_FAMILY_ESPRESSIF_ESP32

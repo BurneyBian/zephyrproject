@@ -1,0 +1,114 @@
+Flexible Software Package (FSP)
+###############################
+
+Origin:
+   Renesas Electronics Corporation
+   https://www.renesas.com/us/en/software-tool/flexible-software-package-fsp
+
+Status:
+   version v5.3.0
+
+Purpose:
+   Flexible Software Package (FSP) for Renesas RA MCU Family.
+
+Description:
+   This package is a snapshot from the RA FSP software released by Renesas Electronics Corporation
+   It contain the HAL and a set of CMSIS headers files for the Renesas RA MCUs
+
+Dependencies:
+    None.
+
+URL:
+   https://github.com/renesas/fsp
+
+Commit:
+   efbaffe35891cee328843ff543a2f6ad0a86077b
+
+Maintained-by:
+   Renesas Electronics Corporation
+
+License:
+   BSD-3-Clause
+
+License Link:
+   https://opensource.org/licenses/BSD-3-Clause
+
+Patch List:
+
+   * Remove the DTC setting override in SCI B UART
+   Impacted files:
+      drivers/ra/fsp/src/r_sci_b_uart/r_sci_b_uart.c
+
+   * Remove the DTC setting override in SCI UART
+   Impacted files:
+      drivers/ra/fsp/src/r_sci_uart/r_sci_uart.c
+
+   * Add bug fix for CANFD setting wrong value of acepptance filtering rule number
+   Impacted files:
+      drivers/ra/fsp/src/r_canfd/r_canfd.c
+
+   * Remove the static definition in FLASH HP
+   Impacted files:
+      drivers/ra/fsp/src/r_flash_hp/r_flash_hp.c
+
+   * Change the section to place code in ram from `.code_in_ram` to `.ramfunc`
+   Impacted files:
+      drivers/ra/fsp/inc/instances/r_flash_hp.h
+
+   * Add SCB_CleanInvalidateDCache() for flash hp when using DCACHE
+   Impacted files:
+      drivers/ra/fsp/src/r_flash_hp/r_flash_hp.c
+
+   * Allows custom implementation of option setting memory
+   Impacted files:
+      drivers/ra/fsp/src/bsp/mcu/all/bsp_rom_registers.c
+
+   * Move the include for cmsis_compiler.h after include for Renesas CMSIS header file
+   Impacted files:
+      drivers/ra/fsp/src/bsp/cmsis/Device/RENESAS/Include/renesas.h
+
+   * Remove the static definition in SDHI
+   Impacted files:
+      drivers/ra/fsp/src/r_sdhi/r_sdhi.c
+
+   * Add in ETHER_CFG_USE_CUSTOM_PHY_DRIVER to Ethernet controller driver to skip the phy control and allow the use of Zephyr phy driver.
+     Add phy link speed to Ethernet controller driver instance control.
+     Remove static definition of some internal function is ethernet driver to allow their usage in Zephyr side
+     Add phy_lsi_address to Ethernet phy instance control to allow the control of phy address as input.
+     Remove the phy target settings as they are not used.
+   Impacted files:
+      drivers/ra/fsp/src/r_ether/r_ether.c
+      drivers/ra/fsp/src/r_ether_phy/r_ether_phy.c
+      drivers/ra/fsp/src/r_ether_phy/targets/DP83620/r_ether_phy_target_dp83620.c
+      drivers/ra/fsp/src/r_ether_phy/targets/ICS1894/r_ether_phy_target_ics1894.c
+      drivers/ra/fsp/src/r_ether_phy/targets/KSZ8041/r_ether_phy_target_ksz8041.c
+      drivers/ra/fsp/src/r_ether_phy/targets/KSZ8091RNB/r_ether_phy_target_ksz8091rnb.c
+      drivers/ra/fsp/inc/instances/r_ether_phy.h
+      drivers/ra/fsp/inc/instances/r_ether.h
+
+   * Add support for SDRAM controllers taken from FSP v5.6.0
+   Impacted files:
+      drivers/ra/fsp/src/bsp/mcu/all/bsp_sdram.h
+      drivers/ra/fsp/src/bsp/mcu/all/bsp_sdram.c
+
+   * Create new USB device support for Zephyr HAL (do not use current FSP USB stack)
+   Impacted files:
+      drivers/ra/fsp/inc/api/r_usb_device_api.h
+      drivers/ra/fsp/inc/instances/r_usb_device.h
+      drivers/ra/fsp/src/r_usb_device/r_usb_device_define.h
+      drivers/ra/fsp/src/r_usb_device/r_usb_device.c
+
+   * Add new define for USB module in bsp_feature.h
+   Impacted files:
+      drivers/ra/fsp/src/bsp/mcu/**/bsp_feature.h
+
+   * Add new support for r_usb_host (not pull from FSP USB)
+   Impacted files:
+      drivers/ra/fsp/inc/api/r_usb_host_api.h
+      drivers/ra/fsp/inc/instances/r_usb_host.h
+      drivers/ra/fsp/src/bsp/mcu/**/bsp_feature.h
+      drivers/ra/fsp/src/r_usb_host/r_usb_host.c
+
+   * Modify BSP_PRV_IELS_ENUM to use CONCAT instead of "##"
+   Impacted files:
+      zephyr/ra/ra_cfg/fsp_cfg/bsp/**/bsp_mcu_family_cfg.h

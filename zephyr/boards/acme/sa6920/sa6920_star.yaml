@@ -1,0 +1,17 @@
+identifier: sa6920/star
+name: ACME SA6920-STAR
+type: mcu
+arch: arm
+ram: 256
+toolchain:
+  - gnuarmemb
+  - zephyr
+supported:
+  - gpio
+testing:
+  default: true
+  ignore_tags:
+    - bluetooth
+    - net
+    - timer
+vendor: acme

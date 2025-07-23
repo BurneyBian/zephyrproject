@@ -1,0 +1,42 @@
+description: Synopsys DesignWare SDHC
+
+compatible: "snps,designware-sdhc"
+
+include: [sdhc.yaml]
+
+properties:
+  reg:
+    required: true
+
+  clocks:
+    required: true
+
+  # pinctrl-0:
+  #   required: true
+
+  # pinctrl-names:
+  #   required: true
+  
+  bus-width:
+    type: int
+    enum:
+      - 1
+      - 4
+    default: 4
+
+  sd-support:
+    type: boolean
+
+  mmc-support:
+    type: boolean
+
+  card-detect:
+    type: boolean
+
+  write-protect:
+    type: boolean
+
+  broken-cd:
+    type: boolean
+    description:
+      There is no card detection available; polling must be used.

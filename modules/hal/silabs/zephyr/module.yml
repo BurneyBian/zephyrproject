@@ -1,0 +1,140 @@
+name: hal_silabs
+build:
+  cmake-ext: True
+  kconfig-ext: True
+blobs:
+  # libbluetooth_controller
+  - path: simplicity_sdk/protocol/bluetooth/bgstack/ll/build/gcc/xg22/release/liblinklayer.a
+    sha256: 77b50c2d3c22c4f23a848d719737f4c0fd6efe764458739559cb36b9554b996b
+    type: lib
+    version: "2024.12.0"
+    license-path: zephyr/blobs/license/Zlib.txt
+    url: https://artifacts.silabs.net/artifactory/gsdk/objects/77/b5/77b50c2d3c22c4f23a848d719737f4c0fd6efe764458739559cb36b9554b996b
+    description: "Bluetooth Controller library (Link Layer) for EFR32"
+    doc-url: https://github.com/SiliconLabs/simplicity_sdk
+  - path: simplicity_sdk/protocol/bluetooth/bgstack/ll/build/gcc/xg24/release/liblinklayer.a
+    sha256: 8f8c77f3eeb612efc2523ae9dacf520ecc61a61319838a5868c5c8383a56870d
+    type: lib
+    version: "2024.12.0"
+    license-path: zephyr/blobs/license/Zlib.txt
+    url: https://artifacts.silabs.net/artifactory/gsdk/objects/8f/8c/8f8c77f3eeb612efc2523ae9dacf520ecc61a61319838a5868c5c8383a56870d
+    description: "Bluetooth Controller library (Link Layer) for EFR32"
+    doc-url: https://github.com/SiliconLabs/simplicity_sdk
+  - path: simplicity_sdk/protocol/bluetooth/bgstack/ll/build/gcc/xg27/release/liblinklayer.a
+    sha256: f7c7e60a3dde8b38fd7ef0d8e374f0fb1d1e9828b434a2ea717bf1125c53a40b
+    type: lib
+    version: "2024.12.0"
+    license-path: zephyr/blobs/license/Zlib.txt
+    url: https://artifacts.silabs.net/artifactory/gsdk/objects/f7/c7/f7c7e60a3dde8b38fd7ef0d8e374f0fb1d1e9828b434a2ea717bf1125c53a40b
+    description: "Bluetooth Controller library (Link Layer) for EFR32"
+    doc-url: https://github.com/SiliconLabs/simplicity_sdk
+  - path: simplicity_sdk/protocol/bluetooth/bgstack/ll/build/gcc/xg29/release/liblinklayer.a
+    sha256: 93579e2431c68423e06096065b8b6ac493e14400f7eb1f22ac1b248ac16332e1
+    type: lib
+    version: "2024.12.0"
+    license-path: zephyr/blobs/license/Zlib.txt
+    url: https://artifacts.silabs.net/artifactory/gsdk/objects/93/57/93579e2431c68423e06096065b8b6ac493e14400f7eb1f22ac1b248ac16332e1
+    description: "Bluetooth Controller library (Link Layer) for EFR32"
+    doc-url: https://github.com/SiliconLabs/simplicity_sdk
+
+  # libbgcommon
+  - path: simplicity_sdk/protocol/bluetooth/bgcommon/lib/build/gcc/cortex-m33/bgcommon/release/libbgcommon.a
+    sha256: f562d2d1f340181ec43ddfa2d6c5c1cb278f6689a0eedc92bc95e001ff2b0a7b
+    type: lib
+    version: "2024.12.0"
+    license-path: zephyr/blobs/license/MSLA.txt
+    url: https://artifacts.silabs.net/artifactory/gsdk/objects/f5/62/f562d2d1f340181ec43ddfa2d6c5c1cb278f6689a0eedc92bc95e001ff2b0a7b
+    description: "Bluetooth Utility library for EFR32"
+    doc-url: https://github.com/SiliconLabs/simplicity_sdk
+
+  # librail for simplicity_sdk (series 2)
+  - path: simplicity_sdk/platform/radio/rail_lib/autogen/librail_release/librail_efr32xg21_gcc_release.a
+    sha256: 27450969a71f072465a926f94920957872084c717638d7b47706b17f9c4e08ce
+    type: lib
+    version: "2024.12.0"
+    license-path: zephyr/blobs/license/Zlib.txt
+    url: https://artifacts.silabs.net/artifactory/gsdk/objects/27/45/27450969a71f072465a926f94920957872084c717638d7b47706b17f9c4e08ce
+    description: "Radio Abstraction Interface Library (RAIL) supporting EFR32 radio subsystem"
+    doc-url: https://github.com/SiliconLabs/simplicity_sdk
+  - path: simplicity_sdk/platform/radio/rail_lib/autogen/librail_release/librail_efr32xg22_gcc_release.a
+    sha256: 2fd82a535badff2b6e8d768e61284354f4cdff638a60f20472631eddffcc0a2d
+    type: lib
+    version: "2024.12.0"
+    license-path: zephyr/blobs/license/Zlib.txt
+    url: https://artifacts.silabs.net/artifactory/gsdk/objects/2f/d8/2fd82a535badff2b6e8d768e61284354f4cdff638a60f20472631eddffcc0a2d
+    description: "Radio Abstraction Interface Library (RAIL) supporting EFR32 radio subsystem"
+    doc-url: https://github.com/SiliconLabs/simplicity_sdk
+  - path: simplicity_sdk/platform/radio/rail_lib/autogen/librail_release/librail_efr32xg23_gcc_release.a
+    sha256: 26eb8ed1be21ee0217f2f793ce096d22ccdb97f56a4b4a482fc183ebb83fbd09
+    type: lib
+    version: "2024.12.0"
+    license-path: zephyr/blobs/license/Zlib.txt
+    url: https://artifacts.silabs.net/artifactory/gsdk/objects/26/eb/26eb8ed1be21ee0217f2f793ce096d22ccdb97f56a4b4a482fc183ebb83fbd09
+    description: "Radio Abstraction Interface Library (RAIL) supporting EFR32 radio subsystem"
+    doc-url: https://github.com/SiliconLabs/simplicity_sdk
+  - path: simplicity_sdk/platform/radio/rail_lib/autogen/librail_release/librail_efr32xg24_gcc_release.a
+    sha256: f8d026207d60d69fdb078de4174ff4678b10a5c3b7d7090d1e547eeaf09f92be
+    type: lib
+    version: "2024.12.0"
+    license-path: zephyr/blobs/license/Zlib.txt
+    url: https://artifacts.silabs.net/artifactory/gsdk/objects/f8/d0/f8d026207d60d69fdb078de4174ff4678b10a5c3b7d7090d1e547eeaf09f92be
+    description: "Radio Abstraction Interface Library (RAIL) supporting EFR32 radio subsystem"
+    doc-url: https://github.com/SiliconLabs/simplicity_sdk
+  - path: simplicity_sdk/platform/radio/rail_lib/autogen/librail_release/librail_efr32xg25_gcc_release.a
+    sha256: 341a995c4f49cc7aa23be3ea5804192d0567535b619fd901f26c9a6cca19d27c
+    type: lib
+    version: "2024.12.0"
+    license-path: zephyr/blobs/license/Zlib.txt
+    url: https://artifacts.silabs.net/artifactory/gsdk/objects/34/1a/341a995c4f49cc7aa23be3ea5804192d0567535b619fd901f26c9a6cca19d27c
+    description: "Radio Abstraction Interface Library (RAIL) supporting EFR32 radio subsystem"
+    doc-url: https://github.com/SiliconLabs/simplicity_sdk
+  - path: simplicity_sdk/platform/radio/rail_lib/autogen/librail_release/librail_efr32xg27_gcc_release.a
+    sha256: 48b191217805f6e9f07a99d78eef8c6d73390104d6473ef64d316409dba89276
+    type: lib
+    version: "2024.12.0"
+    license-path: zephyr/blobs/license/Zlib.txt
+    url: https://artifacts.silabs.net/artifactory/gsdk/objects/48/b1/48b191217805f6e9f07a99d78eef8c6d73390104d6473ef64d316409dba89276
+    description: "Radio Abstraction Interface Library (RAIL) supporting EFR32 radio subsystem"
+    doc-url: https://github.com/SiliconLabs/simplicity_sdk
+  - path: simplicity_sdk/platform/radio/rail_lib/autogen/librail_release/librail_efr32xg29_gcc_release.a
+    sha256: 53fb836230bd945197166e944e78a4d83addade66846216a08b0dfd2ae9f40f3
+    type: lib
+    version: "2024.12.0"
+    license-path: zephyr/blobs/license/Zlib.txt
+    url: https://artifacts.silabs.net/artifactory/gsdk/objects/53/fb/53fb836230bd945197166e944e78a4d83addade66846216a08b0dfd2ae9f40f3
+    description: "Radio Abstraction Interface Library (RAIL) supporting EFR32 radio subsystem"
+    doc-url: https://github.com/SiliconLabs/simplicity_sdk
+
+  # librail for gecko_sdk (series 1)
+  - path: gecko/platform/radio/rail_lib/autogen/librail_release/librail_efr32xg1_gcc_release.a
+    sha256: 776969fe3e98fc1099e31fad92f74d8791ca2069e568e079ad9bce73c9096a3e
+    type: lib
+    version: '4.1.4'
+    license-path: zephyr/blobs/license/Zlib.txt
+    url: https://github.com/SiliconLabs/gecko_sdk/raw/v4.1.4/platform/radio/rail_lib/autogen/librail_release/librail_efr32xg1_gcc_release.a
+    description: "Binary libraries supporting EFR32 RF subsystems"
+    doc-url: https://github.com/SiliconLabs/gecko_sdk
+  - path: gecko/platform/radio/rail_lib/autogen/librail_release/librail_efr32xg12_gcc_release.a
+    sha256: 33c6de9113787aa87baff8443aad00601d2831ade2bbd605f246a5b02ea3fa77
+    type: lib
+    version: '4.1.4'
+    license-path: zephyr/blobs/license/Zlib.txt
+    url: https://github.com/SiliconLabs/gecko_sdk/raw/v4.1.4/platform/radio/rail_lib/autogen/librail_release/librail_efr32xg12_gcc_release.a
+    description: "Binary libraries supporting EFR32 RF subsystems"
+    doc-url: https://github.com/SiliconLabs/gecko_sdk
+  - path: gecko/platform/radio/rail_lib/autogen/librail_release/librail_efr32xg13_gcc_release.a
+    sha256: 25af46964d0373c561ffd8cbabe6c7b0f58cd93d30ae476d60ac84cc52ff1573
+    type: lib
+    version: '4.1.4'
+    license-path: zephyr/blobs/license/Zlib.txt
+    url: https://github.com/SiliconLabs/gecko_sdk/raw/v4.1.4/platform/radio/rail_lib/autogen/librail_release/librail_efr32xg13_gcc_release.a
+    description: "Binary libraries supporting EFR32 RF subsystems"
+    doc-url: https://github.com/SiliconLabs/gecko_sdk
+  - path: gecko/platform/radio/rail_lib/autogen/librail_release/librail_efr32xg14_gcc_release.a
+    sha256: d1f4fd4e2ed814158384e8328fb6807453bae5e263bf78d6ede38889040b5381
+    type: lib
+    version: '4.1.4'
+    license-path: zephyr/blobs/license/Zlib.txt
+    url: https://github.com/SiliconLabs/gecko_sdk/raw/v4.1.4/platform/radio/rail_lib/autogen/librail_release/librail_efr32xg14_gcc_release.a
+    description: "Binary libraries supporting EFR32 RF subsystems"
+    doc-url: https://github.com/SiliconLabs/gecko_sdk

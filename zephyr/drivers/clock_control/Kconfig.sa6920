@@ -1,0 +1,7 @@
+# Copyright (c) 2025 Chenqiang Zheng <zhengchengqiang@microbt.com>
+# SPDX-License-Identifier: Apache-2.0
+
+config CLOCK_CONTROL_SA6920
+	bool "SA6920 clock control"
+	default y
+

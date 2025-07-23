@@ -1,0 +1,6 @@
+board:
+  name: sa6920
+  full_name: ACME SA6920
+  vendor: acme
+  socs:
+  - name: star

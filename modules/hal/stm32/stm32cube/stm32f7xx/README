@@ -1,0 +1,69 @@
+TSTM32CubeF7
+###########
+
+Origin:
+   ST Microelectronics
+   http://www.st.com/en/embedded-software/stm32cubef7.html
+
+Status:
+   version v1.17.2
+
+Purpose:
+   ST Microelectronics official MCU package for STM32F7 series.
+
+Description:
+   This package is an extract of official STM32CubeF7 package written by ST Microelectronics.
+   It is composed of STM32Cube hardware abstraction layer (HAL) and low layer (LL) plus a set
+   of CMSIS headers files, one for each SoC in STM32F7 series.
+
+Dependencies:
+    None.
+
+URL:
+   https://github.com/STMicroelectronics/STM32CubeF7
+
+Commit:
+   767d083e202412da7f50f11515bf3fa1be2cf4fe
+
+Maintained-by:
+   External
+
+License:
+   BSD-3-Clause
+
+License Link:
+   https://opensource.org/licenses/BSD-3-Clause
+
+Patch List:
+
+   *Changes from official delivery:
+    -dos2unix applied
+    -trailing white spaces removed
+
+   *Provision to enable hal & ll asserts added
+    -Added stm32cube/stm32f7xx/drivers/include/stm32_assert.h
+    -Removed unused stm32cube/stm32f7xx/drivers/include/stm32_assert_template.h
+
+   *Enable legacy ethernet driver using HAL_ETH_LEGACY_MODULE_ENABLED
+    This will have to be removed once Zephyr driver is migrated to the new
+    Cube HAL ethernet API.
+
+   *Wrap define UNUSED with an ifndef
+     This will prevent a compiler warning for the case the UNUSED macro
+     is already defined elsewhere in the project
+     Impacted files:
+      drivers/include/stm32f7xx_hal_def.h
+     ST Internal Reference: 136825
+
+   *Fix to remove PAGESIZE definition which conflicts with POSIX
+    Impacted files:
+     drivers/include/Legacy/stm32_hal_legacy.h
+
+   *Fix: Use the correct register DESC0
+    This fix ensures that the TX timestamp is properly set by correctly
+    checking the ETH_DMATXDESC_LS and ETH_DMATXDESC_TTSS flags in the DESC0 register.
+    Impacted files:
+     stm32cube/stm32f7xx/drivers/src/stm32f7xx_hal_eth.c
+    ST Internal reference: 185461
+
+   See release_note.html from STM32Cube

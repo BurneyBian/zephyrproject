@@ -1,0 +1,64 @@
+
+#include <zephyr/dt-bindings/pinctrl/sa6920_pinctrl.h>
+#include "sa6920_star.dtsi"
+&gpioa {
+    pwm0_pins: pwm0_pins {
+			pinmux = <ACME_PINMUX('A', 0, AF1)>;
+	};       
+};
+
+&gpiod {
+    
+	i2c0_clk_pins: i2c0_clk_pins {
+			pinmux = <ACME_PINMUX('D', 12, AF0)>;  /* i2c0-clk */
+
+	};
+    i2c0_dat_pins: i2c0_dat_pins {
+			pinmux = <ACME_PINMUX('D', 13, AF0)>;  /* i2c0-data */
+	};
+    uart0_rx_pins:uart0_rx_pins {
+            pinmux = <ACME_PINMUX('D', 14, AF0)>;  /* uart0_rx */
+    };
+    uart0_tx_pins:uart0_tx_pins {
+            pinmux = <ACME_PINMUX('D', 15, AF0)>;  /* uart0_tx */
+    };
+};
+
+&gpioc {
+	pdm_clk_pins: pdm_clk_pins {
+			pinmux = <ACME_PINMUX('C', 2, AF1)>;      
+	};
+    pdm_dat_pins: pdm_dat_pins {
+			pinmux = <ACME_PINMUX('C', 3, AF1)>;  /* pdm */
+	};
+};
+
+&gpioe {
+	i2c1_clk_pins: i2c1_clk_pins {
+			pinmux = <ACME_PINMUX('E', 4, AF0)>;      
+	};
+    i2c1_dat_pins: i2c1_dat_pins {
+			pinmux = <ACME_PINMUX('E', 5, AF0)>;  /* i2c1 */
+	};
+};
+
+&gpioh {
+	emmc_clk_pin: emmc_clk_pin {
+			pinmux = <ACME_PINMUX('H', 0, AF0)>;      
+	};
+    emmc_cmd_pin: emmc_cmd_pin {
+			pinmux = <ACME_PINMUX('H', 1, AF0)>;      
+	};
+	emmc_dat0_pin: emmc_dat0_pin {
+			pinmux = <ACME_PINMUX('H', 2, AF0)>;      
+	};
+	emmc_dat1_pin: emmc_dat1_pin {
+			pinmux = <ACME_PINMUX('H', 3, AF0)>;      
+	};
+	emmc_dat2_pin: emmc_dat2_pin {
+			pinmux = <ACME_PINMUX('H', 4, AF0)>;      
+	};
+	emmc_dat3_pin: emmc_dat3_pin {
+			pinmux = <ACME_PINMUX('H', 5, AF0)>;      
+	};
+};
