@@ -262,11 +262,11 @@
 			interrupt-parent = <&nvic>;
 			interrupts = <57 1>;
 			
-			status = "okay";
+			status = "disabled";
 			mmc {
 				compatible = "zephyr,mmc-disk";
 				disk-name = "SD2";
-				status = "okay";
+				status = "disabled";
 			};
 
 		};
